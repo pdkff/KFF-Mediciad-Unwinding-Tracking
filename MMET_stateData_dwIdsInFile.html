@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>State enrollment visuals</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+ 
+    <style>
+        select {
+
+            background-color: #fff;
+            border: 2px solid #ccc;
+            font-family: "Open Sans", sans-serif;
+            padding: 8px;
+            border-radius: 4px;
+            color: #444;
+            font-size: 16px;
+            padding: 10px 10px;
+            width: 100%;
+            max-width: 400px;
+            /* Move arrow to the left */
+
+        }
+
+        select:hover,
+        select:focus {
+            border-color: #aaa;
+            box-shadow: 0 0 4px #aaa;
+        }
+
+        select option {
+            color: #001;
+            font-size: 16px;
+        }
+
+        .no-data-yet {
+            color: gray;
+            font-size: 16px;
+        }
+
+        .no-data {
+            color: gray;
+            font-size: 16px;
+        }
+
+        p {
+            font-family: Open Sans
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">
+
+    <p>Select a state:</p>
+    <select id="stateSelector" class="select" tabindex="1" >
+        <option value="Alabama" selected>Alabama</option>
+        <option value="Alaska" >Alaska</option>
+        <option value="Arizona">Arizona</option>
+        <option value="Arkansas">Arkansas</option>
+        <option value="California">California</option>
+        <option value="Colorado">Colorado</option>
+        <option value="Connecticut">Connecticut</option>
+        <option value="Delaware">Delaware</option>
+        <option value="District of Columbia">District of Columbia</option>
+        <option value="Florida">Florida</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Hawaii">Hawaii</option>
+        <option value="Idaho">Idaho</option>
+        <option value="Illinois">Illinois</option>
+        <option value="Indiana">Indiana</option>
+        <option value="Iowa">Iowa</option>
+        <option value="Kansas">Kansas</option>
+        <option value="Kentucky">Kentucky</option>
+        <option value="Louisiana">Louisiana</option>
+        <option value="Maine">Maine</option>
+        <option value="Maryland">Maryland</option>
+        <option value="Massachusetts">Massachusetts</option>
+        <option value="Michigan">Michigan</option>
+        <option value="Minnesota">Minnesota</option>
+        <option value="Mississippi">Mississippi</option>
+        <option value="Missouri">Missouri</option>
+        <option value="Montana">Montana</option>
+        <option value="Nebraska">Nebraska</option>
+        <option value="Nevada">Nevada</option>
+        <option value="New Hampshire">New Hampshire</option>
+        <option value="New Jersey">New Jersey</option>
+        <option value="New Mexico">New Mexico</option>
+        <option value="New York">New York</option>
+        <option value="North Carolina">North Carolina</option>
+        <option value="North Dakota">North Dakota</option>
+        <option value="Ohio">Ohio</option>
+        <option value="Oklahoma">Oklahoma</option>
+        <option value="Oregon">Oregon</option>
+        <option value="Pennsylvania">Pennsylvania</option>
+        <option value="Rhode Island">Rhode Island</option>
+        <option value="South Carolina">South Carolina</option>
+        <option value="South Dakota">South Dakota</option>
+        <option value="Tennessee">Tennessee</option>
+        <option value="Texas">Texas</option>
+        <option value="Utah">Utah</option>
+        <option value="Vermont">Vermont</option>
+        <option value="Virginia">Virginia</option>
+        <option value="Washington">Washington</option>
+        <option value="West Virginia">West Virginia</option>
+        <option value="Wisconsin">Wisconsin</option>
+        <option value="Wyoming">Wyoming</option>
+    </select>
+
+    <div>
+        <br>
+        <div id="figure_1_parent">
+            <iframe title="State Unwindind Plan Table" id="stateChart_1" src="" scrolling="no" frameborder="10px"
+                style="width: 0; height: 0; min-width: 100% !important; border: none;" data-external="1"></iframe>
+            <script
+                type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) { var e = document.querySelectorAll("iframe"); for (var t in a.data["datawrapper-height"]) for (var r = 0; r < e.length; r++)if (e[r].contentWindow === a.source) { var i = a.data["datawrapper-height"][t] + "px"; e[r].style.height = i } } })) }();</script>
+        </div>
+        <br>
+        <div id="figure_2_parent">
+            <iframe title="State Line Chart" id="stateChart_2" src="" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" data-external="1"></iframe>
+            <script
+                type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) { var e = document.querySelectorAll("iframe"); for (var t in a.data["datawrapper-height"]) for (var r = 0; r < e.length; r++)if (e[r].contentWindow === a.source) { var i = a.data["datawrapper-height"][t] + "px"; e[r].style.height = i } } })) }();</script>
+        </div>
+        <br>
+        <div id="figure_4_parent">
+            <iframe title="Disenrollments by age" id="stateChart_4" src="" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" data-external="1"></iframe>
+            <script
+                type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) { var e = document.querySelectorAll("iframe"); for (var t in a.data["datawrapper-height"]) for (var r = 0; r < e.length; r++)if (e[r].contentWindow === a.source) { var i = a.data["datawrapper-height"][t] + "px"; e[r].style.height = i } } })) }();</script>
+        </div>
+        <br>
+        <div id="figure_3_parent">
+            <iframe title="State Unwindind Plan Table" id="stateChart_3" src="" scrolling="no" frameborder="10px"
+                style="width: 0; min-width: 100% !important; border: none;" height="600px" data-external="1"></iframe>
+            <script
+                type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) { var e = document.querySelectorAll("iframe"); for (var t in a.data["datawrapper-height"]) for (var r = 0; r < e.length; r++)if (e[r].contentWindow === a.source) { var i = a.data["datawrapper-height"][t] + "px"; e[r].style.height = i } } })) }();</script>
+        </div>
+
+    </div>
+    </div>
+    <p style="color:white">temp text to check resizing</p>
+</body>
+
+</html>
+
+<script type="text/javascript">!function () {
+        "use strict";
+        window.addEventListener("message", (function (a) {
+            if (void 0 !== a.data["datawrapper-height"]) { var e = document.querySelectorAll("iframe"); for (var t in a.data["datawrapper-height"]) for (var r = 0; r < e.length; r++)if (e[r].contentWindow === a.source) { var i = a.data["datawrapper-height"][t] + "px"; e[r].style.height = i } }
+        }))
+    }();
+</script>
+
+<script>
+
+    let iframe_monthlyEnrollmentChart = document.getElementById("stateChart_1"),
+        iframe_unwindingChart = document.getElementById("stateChart_2"),
+        iframe_keyMetricsTable = document.getElementById("stateChart_3"),
+        iframe_childrenAdultChart = document.getElementById("stateChart_4");
+
+        
+// Assign default charts to the iframes:
+        // Note: these are the datawrapper ids for Alabama
+        iframe_monthlyEnrollmentChart.src = "https://datawrapper.dwcdn.net/g3PlN/";
+        iframe_unwindingChart.src = "";
+        iframe_unwindingChart.style.height = "00px";
+        iframe_keyMetricsTable.src = "https://datawrapper.dwcdn.net/Yb8LX/" ;
+        iframe_childrenAdultChart.src = "";
+        iframe_childrenAdultChart.style.height = "00px";
+
+
+// Set a delay for resizing the higher level iframe
+//Note: this reports to the main page (in wordpress) the size of the pagewide iframe
+//              A delay is needed because the datawrapper iframes change size as they load. 
+//              We wait until they are finished, then report to wordpress the new size after everything has settled
+
+        const pymResize_delay = 3800;
+
+
+
+
+// Read in the Datawrapper links and set up the iframe linkages:
+/*
+Promise.all([
+    // State enrollment DW figure ids
+    //d3.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTTCnxhAo1rI5cbJOwQYXJRbHWQo57G6AU3VjDfl5aP6jnrqGZWTe0TUYEyiNZrMw6JzdOREJvmmT1W/pub?gid=1616615067&single=true&output=csv"),
+    // State Unwinding DW figure ids
+    d3.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTTCnxhAo1rI5cbJOwQYXJRbHWQo57G6AU3VjDfl5aP6jnrqGZWTe0TUYEyiNZrMw6JzdOREJvmmT1W/pub?gid=1484807820&single=true&output=csv"),
+    // State Children vs Adult Chart ids
+    d3.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTTCnxhAo1rI5cbJOwQYXJRbHWQo57G6AU3VjDfl5aP6jnrqGZWTe0TUYEyiNZrMw6JzdOREJvmmT1W/pub?gid=838884126&single=true&output=csv")
+  ]).then((fileData) => {
+
+    console.log(fileData[0])
+
+
+//const data_bars = fileData[0]
+const state_renewalsAndOutcomes = fileData[0]
+const state_childrenAdults = fileData[1]
+  */
+
+
+
+// Which states have which figures, and what order they should be in?
+
+    const statesDataNotYetAvailable = [];
+    
+    const statesNoData = [  ]; // This is enrollment monthly data
+
+  
+
+
+ 
+// Set up references to the different charts:
+// Note: some states have their charts in different orders
+
+    const stateList_unwindingChartFirst = []
+
+    
+
+    // Datawrapper links---
+
+        //"https://via.placeholder.com/350x150"
+        const state_childrenAdults = [
+            { State: 'Alabama', Id: '',  Display:"FALSE"}, 
+            { State: 'Alaska', Id: '' , Display:"FALSE"},
+            { State: 'Arizona', Id: '27aNs', Display:"TRUE"  },
+            { State: 'Arkansas', Id: 'IkoYP', Display:"TRUE"   },
+            { State: 'California', Id: '', Display:"FALSE" },
+            { State: 'Colorado', Id: '', Display:"FALSE" },
+            { State: 'Connecticut', Id: '', Display:"FALSE" },
+            { State: 'Delaware', Id: '', Display:"FALSE" },
+            { State: 'District of Columbia', Id: '' , Display:"FALSE"},
+            { State: 'Florida', Id: '', Display:"FALSE" },
+            { State: 'Hawaii', Id: '', Display:"FALSE" },
+            { State: 'Illinois', Id: '' , Display:"FALSE"},
+            { State: 'Indiana', Id: 'q31aC', Display:"TRUE"   },
+            { State: 'Iowa', Id: '', Display:"FALSE" },
+            { State: 'Kansas', Id: '' , Display:"FALSE"},
+            { State: 'Kentucky', Id: '' , Display:"FALSE"},
+            { State: 'Louisiana', Id: '', Display:"FALSE" },
+            { State: 'Maine', Id: '' , Display:"FALSE"},
+            { State: 'Maryland', Id: '', Display:"FALSE" },
+            { State: 'Massachusetts', Id: '', Display:"FALSE" },
+            { State: 'Michigan', Id: '', Display:"FALSE" },
+            { State: 'Minnesota', Id: '', Display:"FALSE" },
+            { State: 'Mississippi', Id: '' , Display:"FALSE"},
+            { State: 'Missouri', Id: '', Display:"FALSE" },
+            { State: 'Montana', Id: '', Display:"FALSE" },
+            { State: 'Nebraska', Id: '' , Display:"FALSE"},
+            { State: 'Nevada', Id: '', Display:"FALSE" },
+            { State: 'New Hampshire', Id: '' , Display:"FALSE"},
+            { State: 'New Jersey', Id: '' , Display:"FALSE"},
+            { State: 'New Mexico', Id: '' , Display:"FALSE"},
+            { State: 'New York', Id: '', Display:"FALSE" },
+            { State: 'North Carolina', Id: '', Display:"FALSE" },
+            { State: 'North Dakota', Id: '' , Display:"FALSE"},
+            { State: 'Ohio', Id: '', Display:"FALSE" },
+            { State: 'Oklahoma', Id: 'sV3Ax', Display:"TRUE"   },
+            { State: 'Oregon', Id: '', Display:"FALSE" },
+            { State: 'Pennsylvania', Id: '', Display:"FALSE" },
+            { State: 'South Carolina', Id: '' , Display:"FALSE"},
+            { State: 'South Dakota', Id: '', Display:"FALSE" },
+            { State: 'Tennessee', Id: '', Display:"FALSE" },
+            { State: 'Utah', Id: '', Display:"FALSE" },
+            { State: 'Virginia', Id: 'RNXLp', Display:"TRUE"   },
+            { State: 'Washington', Id: 'KV254', Display:"TRUE" },
+            { State: 'West Virginia', Id: '', Display:"FALSE" },
+            { State: 'Wisconsin', Id: '', Display:"FALSE" },
+        ];
+
+        // Figure 1. Enrollment bars
+        const data_bars = [
+        { State: 'Alabama', Id: 'g3PlN' }, // CMS
+        { State: 'Alaska', Id: 'ufsj4' },
+        { State: 'Arizona', Id: 'NBu7P' },
+        { State: 'Arkansas', Id: '02NQZ' },
+        { State: 'California', Id: 'kTj21' },
+        { State: 'Colorado', Id: '6QCoV' },
+        { State: 'Connecticut', Id: 'sQYfi' },
+        { State: 'Delaware', Id: 'pfAJZ' },
+        { State: 'District of Columbia', Id: '84LJ9' },
+        { State: 'Florida', Id: 'oSZwa' },
+        { State: 'Georgia', Id: '3k4ey' }, // CMS
+        { State: 'Hawaii', Id: 'hU1C1' },
+        //{ State: "Idaho", Id: 'PJpg1' }, // Note: this is the no data figure id
+        { State: 'Idaho', Id: 'kFvNf' }, // CMS
+        { State: 'Illinois', Id: 'dVAn9' },
+        { State: 'Indiana', Id: 'acaPX' },
+        { State: 'Iowa', Id: 'x5yuu' },
+        { State: 'Kansas', Id: 'eCheZ' },
+        { State: 'Kentucky', Id: 'Fxvo3' },
+        { State: 'Louisiana', Id: 'onodt' },
+        { State: 'Maine', Id: 'hbgmb' },
+        { State: 'Maryland', Id: 'Qn3Za' },
+        { State: 'Massachusetts', Id: '266yU' },
+        { State: 'Michigan', Id: '0qv9l' },
+        { State: 'Minnesota', Id: 'fiyMx' },
+        { State: 'Mississippi', Id: 'ANGHI' },
+        { State: 'Missouri', Id: 'o4qdQ' },
+        { State: 'Montana', Id: 'BH5Xv' },
+        { State: 'Nebraska', Id: 'wNxOV' },
+        { State: 'Nevada', Id: 'cOTLm' },
+        { State: 'New Hampshire', Id: 'SlKL7' },
+        { State: 'New Jersey', Id: 'QEHtb' },
+        { State: 'New Mexico', Id: 'Y38Ey' },
+        { State: 'New York', Id: 'rlKZV' },
+        { State: 'North Carolina', Id: '0Qhdn' },
+        { State: 'North Dakota', Id: 'OUxYm' },
+        { State: 'Ohio', Id: 'O19pP' },
+        { State: 'Oklahoma', Id: '2caK3' },
+        { State: 'Oregon', Id: 'V8eMB' },
+        { State: 'Pennsylvania', Id: 'OFQlX' },
+        { State: 'Rhode Island', Id: 'WAiTt' },
+        { State: 'South Carolina', Id: 'Fwhg5' },
+        { State: 'South Dakota', Id: 'lT9Cu' },
+        { State: 'Tennessee', Id: 'd0uLt' },
+        { State: 'Texas', Id: 'xDAeH' },
+        { State: 'Utah', Id: 'AoPc0' },
+        { State: 'Vermont', Id: 'uutIg' }, // CMS
+        { State: 'Virginia', Id: 'Qq6gY' },
+        { State: 'Washington', Id: 'D17kP' },
+        { State: 'West Virginia', Id: 'adHNN' },
+        { State: 'Wisconsin', Id: '79GA1' },
+        { State: 'Wyoming', Id: '2x6az' }, // CMS
+    ]
+     
+    // Figure 2. Renewals and disenrollments
+        // Note: only Arkansas/Arizona, Indiana, Florida, Pennslvania, South Dakota, Virginia, and West Virginia has the right link for now
+      
+        const state_renewalsAndOutcomes = [
+            { State: 'Alabama', Id: '5wX4V', Display:"FALSE"  },
+            { State: 'Alaska', Id: 'voOvD', Display:"FALSE"  },
+            { State: 'Arizona', Id: 'Vtsz4' , Display:"TRUE"  },
+            { State: 'Arkansas', Id: '1jGSC', Display:"TRUE"  },
+            { State: 'California', Id: '1pBJy', Display:"FALSE"  },
+            { State: 'Colorado', Id: 'vBPWs', Display:"TRUE"   },
+            { State: 'Connecticut', Id: 'p4Wo0', Display:"TRUE"   },
+            { State: 'Delaware', Id: 'wIHB0', Display:"FALSE" },
+            { State: 'District of Columbia', Id: 'K1REN', Display:"TRUE"   },
+            { State: 'Florida', Id: 'pE65H', Display:"TRUE" },
+            { State: 'Georgia', Id: 'E4Stu', Display:"TRUE"   },
+            { State: 'Hawaii', Id: 'WUSQV', Display:"FALSE"  },
+            { State: 'Idaho', Id: 'k5bEO', Display:"TRUE"   },
+            { State: 'Illinois', Id: 'BUwJC', Display:"FALSE"  },
+            { State: 'Indiana', Id: 'hZaNn', Display:"TRUE"   },
+            { State: 'Iowa', Id: 'l33JC', Display:"TRUE"   },
+            { State: 'Kansas', Id: 'f9n7M', Display:"TRUE"   },
+            { State: 'Kentucky', Id: 'Im3sy', Display:"TRUE"   },
+            { State: 'Louisiana', Id: 'A9nta' , Display:"FALSE" },
+            { State: 'Maine', Id: 'zpLYy', Display:"FALSE"  },
+            { State: 'Maryland', Id: 'RdA7M', Display:"TRUE"   },
+            { State: 'Massachusetts', Id: 'yTzq0' , Display:"FALSE" },
+            { State: 'Michigan', Id: 'J5dFi', Display:"TRUE"  },
+            { State: 'Minnesota', Id: 'qyg6H', Display:"FALSE"  },
+            { State: 'Mississippi', Id: '2JEfx', Display:"TRUE"  },
+            { State: 'Missouri', Id: 'B6N11', Display:"FALSE"  },
+            { State: 'Montana', Id: '2kx0P', Display:"TRUE"   },
+            { State: 'Nebraska', Id: 'nGTw0', Display:"TRUE"   },
+            { State: 'Nevada', Id: '4USCR', Display:"TRUE"   },
+            { State: 'New Hampshire', Id: '4Vb9W', Display:"TRUE"   },
+            { State: 'New Jersey', Id: 'iktt3' , Display:"FALSE" },
+            { State: 'New Mexico', Id: 'dDdzD', Display:"FALSE"  },
+            { State: 'New York', Id: 'Yms3D', Display:"FALSE"  },
+            { State: 'North Carolina', Id: 'POGYf', Display:"FALSE"  },
+            { State: 'North Dakota', Id: 'FmdaO', Display:"FALSE"  },
+            { State: 'Ohio', Id: 'IsFEd', Display:"TRUE"   },
+            { State: 'Oklahoma', Id: '96m2Z', Display:"TRUE"   },
+            { State: 'Oregon', Id: 'v0yl2', Display:"FALSE"   },
+            { State: 'Pennsylvania', Id: 'c3QW4', Display:"TRUE"   },
+            { State: 'Rhode Island', Id: 'PXEF2' , Display:"TRUE"  },
+            { State: 'South Carolina', Id: 'temyL', Display:"TRUE"   },
+            { State: 'South Dakota', Id: 'a1Hs9', Display:"TRUE"   },
+            { State: 'Tennessee', Id: 'eNZc0', Display:"FALSE"  },
+            { State: 'Texas', Id: 'jNqrm', Display:"FALSE"  },
+        //    { State: 'United States', Id: 'RWQwk' },
+            { State: 'Utah', Id: 'aiVly', Display:"FALSE"  },
+            { State: 'Vermont', Id: 'os6YF', Display:"TRUE"   },
+            { State: 'Virginia', Id: 'I8CWQ', Display:"TRUE"   },
+            { State: 'Washington', Id: '1oTgp' , Display:"TRUE" },
+            { State: 'West Virginia', Id: 'WYg4A', Display:"TRUE"   },
+            { State: 'Wisconsin', Id: 'hZN56', Display:"FALSE"  },
+            { State: 'Wyoming', Id: 'OHbjJ' , Display:"FALSE" }];
+
+            
+            const state_links_tables = [
+            { State: 'Alabama', Id: 'Yb8LX' },
+            { State: 'Alaska', Id: 'Off8V' },
+            { State: 'Arizona', Id: 'L8RLt' },
+            { State: 'Arkansas', Id: '5QBnl' },
+            { State: 'California', Id: 'Sfe78' },
+            { State: 'Colorado', Id: '1AMAJ' },
+            { State: 'Connecticut', Id: 'a6HuW' },
+            { State: 'Delaware', Id: '2YN1Z' },
+            { State: 'District of Columbia', Id: 'hI1CS' },
+            { State: 'Florida', Id: 'Te5eZ' },
+            { State: 'Georgia', Id: 'erI79' },
+            { State: 'Hawaii', Id: 'W94oz' },
+            { State: 'Idaho', Id: 'DWJYx' },
+            { State: 'Illinois', Id: 'QN7q4' },
+            { State: 'Indiana', Id: 'OA4OB' },
+            { State: 'Iowa', Id: 'GnKg2' },
+            { State: 'Kansas', Id: 'qk10X' },
+            { State: 'Kentucky', Id: 'yxxPd' },
+            { State: 'Louisiana', Id: '8bs3A' },
+            { State: 'Maine', Id: 'mOLpP' },
+            { State: 'Maryland', Id: 'A62Ai' },
+            { State: 'Massachusetts', Id: '7WzeA' },
+            { State: 'Michigan', Id: 'qcTSP' },
+            { State: 'Minnesota', Id: 'ZrAhJ' },
+            { State: 'Mississippi', Id: '40pzc' },
+            { State: 'Missouri', Id: 'cfIxW' },
+            { State: 'Montana', Id: '2usk2' },
+            { State: 'Nebraska', Id: 'aW0FH' },
+            { State: 'Nevada', Id: 'Vs2c1' },
+            { State: 'New Hampshire', Id: 'cLdnk' },
+            { State: 'New Jersey', Id: 'vU664' },
+            { State: 'New Mexico', Id: 'na3Hq' },
+            { State: 'New York', Id: 'MXZOa' },
+            { State: 'North Carolina', Id: 'uILSU' },
+            { State: 'North Dakota', Id: 'z615d' },
+            { State: 'Ohio', Id: 'xLNk7' },
+            { State: 'Oklahoma', Id: 'dODun' },
+            { State: 'Oregon', Id: 'YsuuK' },
+            { State: 'Pennsylvania', Id: '72fAk' },
+            { State: 'Rhode Island', Id: 'eCNNP' },
+            { State: 'South Carolina', Id: '931qW' },
+            { State: 'South Dakota', Id: 'Sc72F' },
+            { State: 'Tennessee', Id: 'tZDDF' },
+            { State: 'Texas', Id: 'FxjAP' },
+            { State: 'United States', Id: 'RWQwk' },
+            { State: 'Utah', Id: 'iTWKq' },
+            { State: 'Vermont', Id: 'KcNLm' },
+            { State: 'Virginia', Id: 'kUH4A' },
+            { State: 'Washington', Id: 'cJXkf' },
+            { State: 'West Virginia', Id: 'XQybP' },
+            { State: 'Wisconsin', Id: 'Qd2me' },
+            { State: 'Wyoming', Id: '0yGiF' }];
+
+const states_withUnwindingData = state_renewalsAndOutcomes.filter(d => d.Display == "TRUE").map(d => d.State)
+const states_withChildrenAdult = state_childrenAdults.filter(d => d.Display == "TRUE").map(d => d.State)
+
+    // Gray out dropdown: no data yet
+    // find the dropdown element
+    const dropdown = document.getElementById("stateSelector");
+    // loop through the options and apply CSS style to states with no data
+    for (var i = 0; i < dropdown.options.length; i++) {
+        if (statesDataNotYetAvailable.includes(dropdown.options[i].text)) {
+            // dropdown.options[i].style.color = "yellow";
+            dropdown.options[i].classList.add("no-data-yet");
+            dropdown.options[i].text += " (Enrollment data not yet available)";
+        }
+    }
+    // Gray out dropdown: no data ever
+    // find the dropdown element
+    // loop through the options and apply CSS style to states with no data
+    for (var i = 0; i < dropdown.options.length; i++) {
+        if (statesNoData.includes(dropdown.options[i].text)) {
+            // dropdown.options[i].style.color = "yellow";
+            dropdown.options[i].classList.add("no-data");
+            dropdown.options[i].text += " (Enrollment data not reported)";
+        }
+    }
+ // Enable the dropdown once the data are loaded
+    dropdown.disabled = false;
+
+    // Add a listener for the dropdown to resize the iframe:
+    dropdown.addEventListener("change", function () {
+
+        setTimeout(function () {
+            pymChild.sendHeight();
+        }, pymResize_delay);
+
+    });
+
+
+    const dropdown_selectState = d3.select("#stateSelector");
+
+    dropdown_selectState.on("change", updateCharts);
+    function updateCharts() {
+
+        // Which state was selected?
+        const stateSelector = document.getElementById("stateSelector");
+        let selectedState = stateSelector.options[stateSelector.selectedIndex].value;
+
+        // Set up refrences to the iframe/visuals if their order need to be changed
+        if (stateList_unwindingChartFirst.includes(selectedState)) {
+            iframe_monthlyEnrollmentChart = document.getElementById("stateChart_2")
+            iframe_unwindingChart = document.getElementById("stateChart_1")
+            iframe_keyMetricsTable = document.getElementById("stateChart_3") // Note: chart_3 is after chart_4
+            iframe_childrenAdultChart = document.getElementById("stateChart_4")
+        } else {
+          //  console.log("normal order", selectedState)
+            iframe_monthlyEnrollmentChart = document.getElementById("stateChart_1")
+            iframe_unwindingChart = document.getElementById("stateChart_2")
+            iframe_keyMetricsTable = document.getElementById("stateChart_3")
+            iframe_childrenAdultChart = document.getElementById("stateChart_4")
+        }
+        
+
+        
+        // Monthly Enrollment Chart---
+        // If the selected state is not in our suppression list--reassign the iframe link:
+   
+        if (!statesNoData.includes(selectedState) & !statesDataNotYetAvailable.includes(selectedState)) {
+
+            if (data_bars.filter((d) => d.State == selectedState).length > 0) {
+                const dwID_enrollmentBar = data_bars.filter((d) => d.State == selectedState)[0].Id;
+                const dwURL_linkedPies = "https://datawrapper.dwcdn.net/".concat(dwID_enrollmentBar);
+                iframe_monthlyEnrollmentChart.src = dwURL_linkedPies;
+            }
+        } else {
+            iframe_monthlyEnrollmentChart.src = "https://datawrapper.dwcdn.net/PJpg1/";
+        }
+
+        // EER Survey Tables:
+        if (state_links_tables.filter((d) => d.State == selectedState).length > 0) {
+            const dwID_eerTable = state_links_tables.filter((d) => d.State == selectedState)[0].Id;
+            const dwURL_eerTable = "https://datawrapper.dwcdn.net/".concat(dwID_eerTable);
+            iframe_keyMetricsTable.src = dwURL_eerTable;
+        }
+
+        // State Unwinding Charts
+        if (states_withUnwindingData.filter((d) => d == selectedState).length > 0) {
+            console.log("chart")
+            const dwID_stateFigure_unwinding = state_renewalsAndOutcomes.filter((d) => d.State == selectedState)[0].Id;
+            // const dwID_stateFigure_3 = "J2PX9"
+            const dwURL_stateFigure_unwinding = "https://datawrapper.dwcdn.net/".concat(dwID_stateFigure_unwinding);
+         
+            iframe_unwindingChart.src = dwURL_stateFigure_unwinding;
+        } else {
+            
+            iframe_unwindingChart.src = ""
+            iframe_unwindingChart.style.height = '0';
+            console.log("no unwinding chart", iframe_unwindingChart, iframe_unwindingChart.style.height)
+
+        }
+
+      // State Unwinding Charts
+       if (states_withChildrenAdult.filter((d) => d == selectedState).length > 0) {
+            const dwID_stateFigure_childAdult = state_childrenAdults.filter((d) => d.State == selectedState)[0].Id;
+            // const dwID_stateFigure_3 = "J2PX9"
+            const dwURL_stateFigure_childAdult = "https://datawrapper.dwcdn.net/".concat(dwID_stateFigure_childAdult);
+         
+            iframe_childrenAdultChart.src = dwURL_stateFigure_childAdult;
+        } else {
+            iframe_childrenAdultChart.src = ""
+            iframe_childrenAdultChart.style.height = "00px";
+        }
+
+    }
+
+// }) // end promise.all([], function())
+</script>
+
+<!--this script resizes the i-frame of this content to fit the site-->
+<script>/*! pym.js - v1.3.2 - 2018-02-13 */
+    !function (a) { "function" == typeof define && define.amd ? define(a) : "undefined" != typeof module && module.exports ? module.exports = a() : window.pym = a.call(this) }(function () { var a = {}, b = function (a) { var b = document.createEvent("Event"); b.initEvent("pym:" + a, !0, !0), document.dispatchEvent(b) }, c = function (a) { var b = new RegExp("[\\?&]" + a.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]") + "=([^&#]*)"), c = b.exec(location.search); return null === c ? "" : decodeURIComponent(c[1].replace(/\+/g, " ")) }, d = function (a, b) { if (("*" === b.xdomain || a.origin.match(new RegExp(b.xdomain + "$"))) && "string" == typeof a.data) return !0 }, e = function (a) { var b = /^(?:(?:https?|mailto|ftp):|[^&:\/?#]*(?:[\/?#]|$))/gi; if (a.match(b)) return !0 }, f = function (a, b, c) { return ["pym", a, b, c].join("xPYMx") }, g = function (a) { var b = ["pym", a, "(\\S+)", "(.*)"]; return new RegExp("^" + b.join("xPYMx") + "$") }, h = Date.now || function () { return (new Date).getTime() }, i = function (a, b, c) { var d, e, f, g = null, i = 0; c || (c = {}); var j = function () { i = !1 === c.leading ? 0 : h(), g = null, f = a.apply(d, e), g || (d = e = null) }; return function () { var k = h(); i || !1 !== c.leading || (i = k); var l = b - (k - i); return d = this, e = arguments, l <= 0 || l > b ? (g && (clearTimeout(g), g = null), i = k, f = a.apply(d, e), g || (d = e = null)) : g || !1 === c.trailing || (g = setTimeout(j, l)), f } }, j = function () { for (var b = a.autoInitInstances.length, c = b - 1; c >= 0; c--) { var d = a.autoInitInstances[c]; d.el.getElementsByTagName("iframe").length && d.el.getElementsByTagName("iframe")[0].contentWindow || a.autoInitInstances.splice(c, 1) } }; return a.autoInitInstances = [], a.autoInit = function (c) { var d = document.querySelectorAll("[data-pym-src]:not([data-pym-auto-initialized])"), e = d.length; j(); for (var f = 0; f < e; ++f) { var g = d[f]; g.setAttribute("data-pym-auto-initialized", ""), "" === g.id && (g.id = "pym-" + f + "-" + Math.random().toString(36).substr(2, 5)); var h = g.getAttribute("data-pym-src"), i = { xdomain: "string", title: "string", name: "string", id: "string", sandbox: "string", allowfullscreen: "boolean", parenturlparam: "string", parenturlvalue: "string", optionalparams: "boolean", trackscroll: "boolean", scrollwait: "number" }, k = {}; for (var l in i) if (null !== g.getAttribute("data-pym-" + l)) switch (i[l]) { case "boolean": k[l] = !("false" === g.getAttribute("data-pym-" + l)); break; case "string": k[l] = g.getAttribute("data-pym-" + l); break; case "number": var m = Number(g.getAttribute("data-pym-" + l)); isNaN(m) || (k[l] = m); break; default: console.err("unrecognized attribute type") }var n = new a.Parent(g.id, h, k); a.autoInitInstances.push(n) } return c || b("pym-initialized"), a.autoInitInstances }, a.Parent = function (a, b, c) { this.id = a, this.url = b, this.el = document.getElementById(a), this.iframe = null, this.settings = { xdomain: "*", optionalparams: !0, parenturlparam: "parentUrl", parenturlvalue: window.location.href, trackscroll: !1, scrollwait: 100 }, this.messageRegex = g(this.id), this.messageHandlers = {}, c = c || {}, this._constructIframe = function () { var a = this.el.offsetWidth.toString(); this.iframe = document.createElement("iframe"); var b = "", c = this.url.indexOf("#"); for (c > -1 && (b = this.url.substring(c, this.url.length), this.url = this.url.substring(0, c)), this.url.indexOf("?") < 0 ? this.url += "?" : this.url += "&", this.iframe.src = this.url + "initialWidth=" + a + "&childId=" + this.id, this.settings.optionalparams && (this.iframe.src += "&parentTitle=" + encodeURIComponent(document.title), this.iframe.src += "&" + this.settings.parenturlparam + "=" + encodeURIComponent(this.settings.parenturlvalue)), this.iframe.src += b, this.iframe.setAttribute("width", "100%"), this.iframe.setAttribute("scrolling", "no"), this.iframe.setAttribute("marginheight", "0"), this.iframe.setAttribute("frameborder", "0"), this.settings.title && this.iframe.setAttribute("title", this.settings.title), void 0 !== this.settings.allowfullscreen && !1 !== this.settings.allowfullscreen && this.iframe.setAttribute("allowfullscreen", ""), void 0 !== this.settings.sandbox && "string" == typeof this.settings.sandbox && this.iframe.setAttribute("sandbox", this.settings.sandbox), this.settings.id && (document.getElementById(this.settings.id) || this.iframe.setAttribute("id", this.settings.id)), this.settings.name && this.iframe.setAttribute("name", this.settings.name); this.el.firstChild;)this.el.removeChild(this.el.firstChild); this.el.appendChild(this.iframe), window.addEventListener("resize", this._onResize), this.settings.trackscroll && window.addEventListener("scroll", this._throttleOnScroll) }, this._onResize = function () { this.sendWidth(), this.settings.trackscroll && this.sendViewportAndIFramePosition() }.bind(this), this._onScroll = function () { this.sendViewportAndIFramePosition() }.bind(this), this._fire = function (a, b) { if (a in this.messageHandlers) for (var c = 0; c < this.messageHandlers[a].length; c++)this.messageHandlers[a][c].call(this, b) }, this.remove = function () { window.removeEventListener("message", this._processMessage), window.removeEventListener("resize", this._onResize), this.el.removeChild(this.iframe), j() }, this._processMessage = function (a) { if (d(a, this.settings) && "string" == typeof a.data) { var b = a.data.match(this.messageRegex); if (!b || 3 !== b.length) return !1; var c = b[1], e = b[2]; this._fire(c, e) } }.bind(this), this._onHeightMessage = function (a) { var b = parseInt(a); this.iframe.setAttribute("height", b + "px") }, this._onNavigateToMessage = function (a) { e(a) && (document.location.href = a) }, this._onScrollToChildPosMessage = function (a) { var b = document.getElementById(this.id).getBoundingClientRect().top + window.pageYOffset, c = b + parseInt(a); window.scrollTo(0, c) }, this.onMessage = function (a, b) { a in this.messageHandlers || (this.messageHandlers[a] = []), this.messageHandlers[a].push(b) }, this.sendMessage = function (a, b) { this.el.getElementsByTagName("iframe").length && (this.el.getElementsByTagName("iframe")[0].contentWindow ? this.el.getElementsByTagName("iframe")[0].contentWindow.postMessage(f(this.id, a, b), "*") : this.remove()) }, this.sendWidth = function () { var a = this.el.offsetWidth.toString(); this.sendMessage("width", a) }, this.sendViewportAndIFramePosition = function () { var a = this.iframe.getBoundingClientRect(), b = window.innerWidth || document.documentElement.clientWidth, c = window.innerHeight || document.documentElement.clientHeight, d = b + " " + c; d += " " + a.top + " " + a.left, d += " " + a.bottom + " " + a.right, this.sendMessage("viewport-iframe-position", d) }; for (var h in c) this.settings[h] = c[h]; return this._throttleOnScroll = i(this._onScroll.bind(this), this.settings.scrollwait), this.onMessage("height", this._onHeightMessage), this.onMessage("navigateTo", this._onNavigateToMessage), this.onMessage("scrollToChildPos", this._onScrollToChildPosMessage), this.onMessage("parentPositionInfo", this.sendViewportAndIFramePosition), window.addEventListener("message", this._processMessage, !1), this._constructIframe(), this }, a.Child = function (a) { this.parentWidth = null, this.id = null, this.parentTitle = null, this.parentUrl = null, this.settings = { renderCallback: null, xdomain: "*", polling: 0, parenturlparam: "parentUrl" }, this.timerId = null, this.messageRegex = null, this.messageHandlers = {}, a = a || {}, this.onMessage = function (a, b) { a in this.messageHandlers || (this.messageHandlers[a] = []), this.messageHandlers[a].push(b) }, this._fire = function (a, b) { if (a in this.messageHandlers) for (var c = 0; c < this.messageHandlers[a].length; c++)this.messageHandlers[a][c].call(this, b) }, this._processMessage = function (a) { if (d(a, this.settings) && "string" == typeof a.data) { var b = a.data.match(this.messageRegex); if (b && 3 === b.length) { var c = b[1], e = b[2]; this._fire(c, e) } } }.bind(this), this._onWidthMessage = function (a) { var b = parseInt(a); b !== this.parentWidth && (this.parentWidth = b, this.settings.renderCallback && this.settings.renderCallback(b), this.sendHeight()) }, this.sendMessage = function (a, b) { window.parent.postMessage(f(this.id, a, b), "*") }, this.sendHeight = function () { var a = document.getElementsByTagName("body")[0].offsetHeight.toString(); return this.sendMessage("height", a), a }.bind(this), this.getParentPositionInfo = function () { this.sendMessage("parentPositionInfo") }, this.scrollParentTo = function (a) { this.sendMessage("navigateTo", "#" + a) }, this.navigateParentTo = function (a) { this.sendMessage("navigateTo", a) }, this.scrollParentToChildEl = function (a) { var b = document.getElementById(a).getBoundingClientRect().top + window.pageYOffset; this.scrollParentToChildPos(b) }, this.scrollParentToChildPos = function (a) { this.sendMessage("scrollToChildPos", a.toString()) }; this.remove = function () { window.removeEventListener("message", this._processMessage), this.timerId && clearInterval(this.timerId) }; for (var e in a) this.settings[e] = a[e]; this.id = c("childId") || a.id, this.messageRegex = new RegExp("^pymxPYMx" + this.id + "xPYMx(\\S+)xPYMx(.*)$"); var g = parseInt(c("initialWidth")); return this.parentUrl = c(this.settings.parenturlparam), this.parentTitle = c("parentTitle"), this.onMessage("width", this._onWidthMessage), window.addEventListener("message", this._processMessage, !1), this.settings.renderCallback && this.settings.renderCallback(g), this.sendHeight(), this.settings.polling && (this.timerId = window.setInterval(this.sendHeight, this.settings.polling)), function (a) { var c, d = document.getElementsByTagName("html")[0], e = d.className; try { c = window.self !== window.top ? "embedded" : "not-embedded" } catch (a) { c = "embedded" } e.indexOf(c) < 0 && (d.className = e ? e + " " + c : c, a && a(c), b("marked-embedded")) }(a.onMarkedEmbeddedStatus), this }, "undefined" != typeof document && a.autoInit(!0), a });
+</script>
+<script>
+    // Set up the resizable iframe code
+
+    // Resize the iframe on initial load
+    const pymChild = new pym.Child();
+    pymChild.sendHeight();
+
+
+    // 
+    window.addEventListener("resize", function () {
+        setTimeout(function () {
+            pymChild.sendHeight();
+        }, pymResize_delay);
+
+    });
+</script>
